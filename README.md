@@ -37,7 +37,7 @@ In tools folder of your weboob installation, run "run_test.sh" followed by the  
 Install the module in wetboobs:
 
 ```
-backend add accuweather
+backend add openweathermap
 ```
 
 Search for a city (Paris for instance):
