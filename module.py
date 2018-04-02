@@ -35,7 +35,7 @@ class OpenWeatherMapModule(Module, CapWeather):
     MAINTAINER = u'manojd'
     EMAIL = 'manoj.ducher@gmail.com'
     LICENSE = 'AGPLv3+'
-    VERSION = '1.3'
+    VERSION = '1.4'
 
     BROWSER = OpenWeatherMapBrowser
 
