@@ -25,3 +25,14 @@ from weboob.tools.test import BackendTest
 
 class OpenWeatherMapTest(BackendTest):
     MODULE = 'openweathermap'
+
+    def test_meteo(self):
+        l = list(self.backend.iter_city_search('paris'))
+        self.assertTrue(len(list(l)) >= 1)
+
+        current = self.backend.get_current(l[0].id)
+        m = list(current)[0]
+        self.assertTrue(m.temp.value > -20 and m.temp.value < 50)
+
+        forecasts = list(self.backend.iter_forecast(l[0].id))
+        self.assertTrue(len(forecasts) > 0)
