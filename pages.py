@@ -20,8 +20,7 @@
 from __future__ import unicode_literals
 from datetime import date, datetime
 from weboob.browser.elements import ItemElement, method, DictElement, ListElement
-from weboob.browser.filters.standard import Format, Env, CleanText, CleanDecimal, Regexp
-from weboob.browser.pages import HTMLPage, JsonPage
+from weboob.browser.pages import JsonPage
 from weboob.browser.filters.json import Dict
 from weboob.capabilities.weather import Forecast, Current, City, Temperature
 
@@ -55,7 +54,7 @@ class CurrentPage(JsonPage):
             klass = Current
 
             obj_date = date.today()
-            
+
             def obj_text(self):
                 return '{} hPa - humidity {}% - {}'.format(Dict['main']['pressure'](self),
                                                            Dict['main']['humidity'](self),
@@ -71,7 +70,7 @@ class ForecastPage(JsonPage):
     class iter_forecast(DictElement):
         ignore_duplicate = True
         item_xpath = 'list'
-        
+
         class itemitem(ListElement):
             class item(ItemElement):
                 klass = Forecast
